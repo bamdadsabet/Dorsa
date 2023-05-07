@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef, useCallback } from "react"
+import React, { useState, useRef, useCallback } from "react"
 import useMovieLoad from "./hooks/useMovieLoad"
 import Typography from '@mui/material/Typography'
 import Grid from '@mui/material/Grid'
@@ -8,6 +8,7 @@ import ArrowForwardIcon from '@mui/icons-material/ArrowForward';
 import FilterListSharpIcon from '@mui/icons-material/FilterListSharp';
 import { Backdrop, Box, CircularProgress, LinearProgress } from "@mui/material"
 import SortByForm from "./SortByForm"
+import './index.css'
 
 type sortTypes = 'view' | 'rate' | 'newest';
 
@@ -28,7 +29,7 @@ const App:React.FC = () =>{
       return;
     if(observer.current) observer.current.disconnect();
     observer.current = new IntersectionObserver(entries => {
-      if(entries[0].isIntersecting)
+      if(entries[0].isIntersecting && hasMore)
         setPage(perPage => perPage + 1)
         
     });
@@ -48,17 +49,21 @@ const App:React.FC = () =>{
         :
         null
       }
-      <Container  sx={{textAlign: "right", px: 1, pt: 1}}>
-      <a href="" style={{textDecoration: 'none'}}>
-        <Typography 
-          variant="h6" 
-          color="textSecondary"
-          sx={{mb:1, verticalAlign: 'middle', display: 'inline-flex'}}
+      <Container 
+        sx={{textAlign: "right", px: 1, pt: 1, minHeight: '101vh'}}
+      >
+        <a 
+          href="" 
         >
-          بازگشت
-          <ArrowForwardIcon sx={{paddingTop: '5px'}}  />
-        </Typography>
-      </a>
+          <Typography 
+            variant="h6" 
+            color="textSecondary"
+            sx={{mb:1, verticalAlign: 'middle', display: 'inline-flex'}}
+          >
+            بازگشت
+            <ArrowForwardIcon sx={{paddingTop: '5px'}}  />
+          </Typography>
+        </a>
       <Typography 
         variant="h6" 
         sx={{mb:2}}

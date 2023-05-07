@@ -17,8 +17,8 @@ const useMovieLoad = (sortBy: string, pageNumber: number) => {
                 console.log('perv', pervMoviesList, pageNumber);
                 console.log('new', res.data.data, pageNumber);
                 const movieList = [...pervMoviesList, ...res.data.data].map(JSON.stringify);
+                setHasMore(res.data['max_num_pages'] > pageNumber)
                 return [...new Set(movieList)].map(JSON.parse);
-                
             });
             setIsLoading(false);
             console.log('is fetching data', sortBy)

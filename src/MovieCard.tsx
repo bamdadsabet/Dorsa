@@ -21,7 +21,7 @@ const MovieCard:React.FC<props> = ({img, title, score}) => {
 
         />
         <Typography variant="body1" align='right' color="initial" sx={{pr:1}}>{title}</Typography>
-        <Typography variant="inherit" align='right' color="initial" sx={{pr:1}}>
+        <Typography variant="inherit" align='right' color="initial" sx={{pr:1, display: 'flex', alignItems: 'center', justifyContent:'flex-end'}}>
             {score}
             <StarPurple500SharpIcon sx={{color: '#FDCC0D'}} />
         </Typography>
