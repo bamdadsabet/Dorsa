@@ -1,0 +1,22 @@
+.movieCard { 
+  text-decoration: none;
+  width: 220px;
+  display: inline-block;
+  margin-left: calc(50% - 110px);
+  display: inline-block;
+}
+.imgCard {
+  width: 220px;
+  height: 315px;
+  border-radius: 8%;
+}
+@media screen and (max-width:700px) {
+  .movieCard { 
+    width: 150px;
+    margin-left: calc(50% - 75px);
+  }
+  .imgCard {
+    height: 220px;
+    width: 150px;
+  }
+}
